@@ -1,8 +1,8 @@
 <template>
     <div class="right-goods">
         <p>猜你喜欢</p>
-        <div class="item" v-for="item in dataList" :key="item.itemId">
-            <img src="http://p0.meituan.net/msmerchant/b34690f52ebdda221e4153c35878de8c2243192.jpg@275w_156h_1e_1c" alt="">
+        <div class="item" v-for="(item,index) in dataList" :key="item.itemId">
+            <img :src="imgList[index]" alt="">
             <div class="title">{{item.title}}</div>
             <el-rate
                 v-model="item.score"
@@ -23,12 +23,15 @@ export default {
             this.dataList = res.data.data.map(item=>{
                 item.score = Number(item.score);
                 return item;
-            });
-            console.log(this.dataList)
+            }).slice(0,3);
         })
     },
     data(){
         return{
+            imgList:['//p1.meituan.net/deal/cdfa28db23e818b2fcbaa20d41e386761027424.jpg@330w_187h_1e_1c',
+            '//p0.meituan.net/mogu/ba88f20f92d6b7a437d682d14b05d01c139383.jpg@285w_159h_1e_1c',
+            '//p1.meituan.net/deal/__50145561__5016429.jpg@285w_159h_1e_1c',
+            ],
             dataList:[]
         }
     }

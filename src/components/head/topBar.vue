@@ -214,7 +214,7 @@ import login from "./login";
 export default {
   data() {
     return {
-      nearCity: ["唐山", "曹妃甸", "哈哈哈"]
+      nearCity: ["唐山", "曹妃甸", "垦丰大街"]
     };
   },
   components: {
